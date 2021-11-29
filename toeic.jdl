@@ -1,0 +1,107 @@
+entity Users {
+  id Long,
+  name String maxlength(60), // tên tài khoản
+  fullName String maxlength(60), // tên ngừoi dùng
+  pass String maxlength(60), // mật khẩu
+  pathUrl String maxlength(200), // link avatar
+  dateOfBirth ZonedDateTime, // ngày sinh
+  mail String maxlength(100), // email
+  phone String maxlength(10), // số điện thoại
+  status Long, // 0 Hoạt động, 1 : khoá
+  resetKey String maxlength(8), // mã khi
+  resetDate ZonedDateTime, // thời gian cấp mã lấy lại mật khẩu
+  creator String maxlength(60), // ngừoi tạo
+  creationTime ZonedDateTime // thời gian tạo
+}
+
+entity Category {
+  id Long,
+  code String,
+  categoryName String maxlength(60), // Tên đề bài
+  status Long, // Trạng thái hoạt động
+  updateTime ZonedDateTime,
+  creationTime ZonedDateTime // thời gian tạo
+}
+
+
+entity QuestionAnswers {
+  id Long, // id câu hỏi
+  name String maxlength(60), // Tên câu hỏi
+  answer String maxlength(60), // Câu trả lời
+  status Long, //  Áp dụng hay ngừng áp dụng
+  stt Long, // thứ tự câu trong câu hỏi
+  answerToChoose String maxlength(200), // Học sinh chọn đáp án
+  transscript String maxlength(500), // Giải thích cho mỗi câu hỏi
+}
+
+entity FileUpload {
+  id Long,
+  typeFile String maxlength(200), //0: Am thanh , 1: Hinh Anh
+  path String maxlength(200),// Đường dẫn ảnh , video
+}
+
+entity RoleObject {
+  id Long,
+  updateTime ZonedDateTime
+}
+
+entity Roles {
+  id Long,
+  name String maxlength(60),
+  code String maxlength(60),
+  description String maxlength(1000),
+  status Long,
+  isLink String,
+  updateTime ZonedDateTime,
+  type Long
+}
+
+entity Objects {
+  id Long,
+  parentId Long,
+  name String maxlength(60),
+  code String maxlength(60),
+  description String maxlength(1000),
+  status Long,
+  icon String maxlength(60),
+  path String maxlength(60),
+  updateTime ZonedDateTime,
+  type Long
+}
+
+entity Topic {
+  id Long,
+  name String maxlength(60),
+  code String maxlength(60),
+  idType Long,
+  idPartTopic Long,
+  updateTime ZonedDateTime,
+  creationTime ZonedDateTime // thời gian tạo
+
+}
+
+entity SysLogs {
+  id Long,
+  userImpact String,
+  codeAction String,
+  content String,
+  impactTime ZonedDateTime,
+  endTime ZonedDateTime,
+  ip String,
+  nameClient String
+}
+
+relationship OneToMany {
+  Roles{dsUsers} to Users{roles},
+  Roles{dsRoleObject} to RoleObject{roles},
+  Objects{dsRoleObject} to RoleObject{objects},
+  Topic{dsCategory} to Category{topic},
+  Category{dsQuestionAnswers} to QuestionAnswers{Category},
+  Category{dsFileUpload} to FileUpload{Category}
+}
+
+
+paginate * with pagination
+service * with serviceClass
+filter *
+dto * with mapstruct

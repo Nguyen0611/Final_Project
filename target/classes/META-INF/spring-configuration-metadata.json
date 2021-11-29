@@ -1,0 +1,17 @@
+{
+  "groups": [
+    {
+      "name": "application",
+      "type": "fpt.toeic.config.ApplicationProperties",
+      "sourceType": "fpt.toeic.config.ApplicationProperties"
+    },
+    {
+      "name": "spring.datasource.hikari",
+      "type": "javax.sql.DataSource",
+      "sourceType": "fpt.toeic.config.CloudDatabaseConfiguration",
+      "sourceMethod": "dataSource(org.springframework.cache.CacheManager)"
+    }
+  ],
+  "properties": [],
+  "hints": []
+}

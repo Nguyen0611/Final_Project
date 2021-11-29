@@ -1,0 +1,52 @@
+{
+  "name": "Topic",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "60"
+    },
+    {
+      "fieldName": "code",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "60"
+    },
+    {
+      "fieldName": "idType",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "idPartTopic",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "updateTime",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "creationTime",
+      "fieldType": "ZonedDateTime"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "category",
+      "otherEntityRelationshipName": "topic",
+      "relationshipName": "dsCategory"
+    }
+  ],
+  "entityTableName": "topic",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": true,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20210724175951",
+  "clientRootFolder": ""
+}

@@ -1,0 +1,59 @@
+{
+  "name": "Category",
+  "fields": [
+    {
+      "fieldName": "code",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "categoryName",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "60"
+    },
+    {
+      "fieldName": "status",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "updateTime",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "creationTime",
+      "fieldType": "ZonedDateTime"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "questionAnswers",
+      "otherEntityRelationshipName": "category",
+      "relationshipName": "dsQuestionAnswers"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "fileUpload",
+      "otherEntityRelationshipName": "category",
+      "relationshipName": "dsFileUpload"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "topic",
+      "otherEntityRelationshipName": "dsCategory",
+      "relationshipName": "topic",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20210822104441",
+  "entityTableName": "category",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": true,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

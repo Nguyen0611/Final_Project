@@ -1,0 +1,54 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-3.9.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <changeSet author="thachhieu (generated)" id="1630853470140-1">
+        <createTable tableName="file_upload">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="file_uploadPK"/>
+            </column>
+            <column name="path" type="VARCHAR(200)"/>
+            <column name="type_file" type="VARCHAR(200)"/>
+            <column name="category_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="thachhieu (generated)" id="1630853470140-2">
+        <createTable tableName="question_answers">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="question_answersPK"/>
+            </column>
+            <column name="answer" type="VARCHAR(60)"/>
+            <column name="answer_to_choose" type="VARCHAR(200)"/>
+            <column name="name" type="VARCHAR(60)"/>
+            <column name="status" type="BIGINT"/>
+            <column name="transscript" type="VARCHAR(500)"/>
+            <column name="category_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="thachhieu (generated)" id="1630853470140-3">
+        <addColumn tableName="category">
+            <column name="creation_time" type="datetime(6)"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="thachhieu (generated)" id="1630853470140-4">
+        <addColumn tableName="category">
+            <column name="update_time" type="datetime(6)"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="thachhieu (generated)" id="1630853470140-5">
+        <addForeignKeyConstraint baseColumnNames="category_id" baseTableName="file_upload" constraintName="FKaj75sgl07rd705py4rq4t5qby" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="category" validate="true"/>
+    </changeSet>
+    <changeSet author="thachhieu (generated)" id="1630853470140-6">
+        <addForeignKeyConstraint baseColumnNames="category_id" baseTableName="question_answers" constraintName="FKnmglrvxq2d3gcybivxrqsmg9d" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="category" validate="true"/>
+    </changeSet>
+    <changeSet author="thachhieu (generated)" id="1630853470140-7">
+        <dropForeignKeyConstraint baseTableName="question_answers_listening" constraintName="FKayr5858yduxt662qcxg42mqyr"/>
+    </changeSet>
+    <changeSet author="thachhieu (generated)" id="1630853470140-8">
+        <dropForeignKeyConstraint baseTableName="question_answers_reading" constraintName="FKtk4urnj6w35701kgwpncobpsm"/>
+    </changeSet>
+    <changeSet author="thachhieu (generated)" id="1630853470140-9">
+        <dropTable tableName="question_answers_listening"/>
+    </changeSet>
+    <changeSet author="thachhieu (generated)" id="1630853470140-10">
+        <dropTable tableName="question_answers_reading"/>
+    </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,85 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-3.9.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <changeSet author="thachhieu (generated)" id="1622863072864-1">
+        <createTable tableName="objects">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="objectsPK"/>
+            </column>
+            <column name="code" type="VARCHAR(60)"/>
+            <column name="description" type="VARCHAR(1000)"/>
+            <column name="icon" type="VARCHAR(60)"/>
+            <column name="name" type="VARCHAR(60)"/>
+            <column name="parent_id" type="BIGINT"/>
+            <column name="path" type="VARCHAR(60)"/>
+            <column name="status" type="BIGINT"/>
+            <column name="type" type="BIGINT"/>
+            <column name="update_time" type="datetime(6)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="thachhieu (generated)" id="1622863072864-2">
+        <createTable tableName="role_object">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="role_objectPK"/>
+            </column>
+            <column name="update_time" type="datetime(6)"/>
+            <column name="objects_id" type="BIGINT"/>
+            <column name="roles_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="thachhieu (generated)" id="1622863072864-3">
+        <createTable tableName="roles">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="rolesPK"/>
+            </column>
+            <column name="code" type="VARCHAR(60)"/>
+            <column name="description" type="VARCHAR(1000)"/>
+            <column name="name" type="VARCHAR(60)"/>
+            <column name="status" type="BIGINT"/>
+            <column name="type" type="BIGINT"/>
+            <column name="update_time" type="datetime(6)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="thachhieu (generated)" id="1622863072864-4">
+        <createTable tableName="sys_logs">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="sys_logsPK"/>
+            </column>
+            <column name="code_action" type="VARCHAR(255)"/>
+            <column name="content" type="VARCHAR(255)"/>
+            <column name="end_time" type="datetime(6)"/>
+            <column name="impact_time" type="datetime(6)"/>
+            <column name="ip" type="VARCHAR(255)"/>
+            <column name="name_client" type="VARCHAR(255)"/>
+            <column name="user_impact" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="thachhieu (generated)" id="1622863072864-5">
+        <createTable tableName="users">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="usersPK"/>
+            </column>
+            <column name="creation_time" type="datetime(6)"/>
+            <column name="creator" type="VARCHAR(60)"/>
+            <column name="date_of_birth" type="datetime(6)"/>
+            <column name="full_name" type="VARCHAR(60)"/>
+            <column name="mail" type="VARCHAR(100)"/>
+            <column name="name" type="VARCHAR(60)"/>
+            <column name="pass" type="VARCHAR(60)"/>
+            <column name="path_url" type="VARCHAR(60)"/>
+            <column name="phone" type="VARCHAR(10)"/>
+            <column name="reset_date" type="datetime(6)"/>
+            <column name="reset_key" type="VARCHAR(8)"/>
+            <column name="status" type="BIGINT"/>
+            <column name="roles_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="thachhieu (generated)" id="1622863072864-6">
+        <addForeignKeyConstraint baseColumnNames="objects_id" baseTableName="role_object" constraintName="FK4d9ouqacrsuj3p4u6bnt0c8fu" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="objects" validate="true"/>
+    </changeSet>
+    <changeSet author="thachhieu (generated)" id="1622863072864-7">
+        <addForeignKeyConstraint baseColumnNames="roles_id" baseTableName="role_object" constraintName="FK83ll3wnfienu11cl84l3jek" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="roles" validate="true"/>
+    </changeSet>
+    <changeSet author="thachhieu (generated)" id="1622863072864-8">
+        <addForeignKeyConstraint baseColumnNames="roles_id" baseTableName="users" constraintName="FKbgvg7xuekkcqmpvi3tgkxk85j" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="roles" validate="true"/>
+    </changeSet>
+</databaseChangeLog>

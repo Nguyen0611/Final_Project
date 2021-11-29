@@ -1,0 +1,45 @@
+{
+  "name": "SysLogs",
+  "fields": [
+    {
+      "fieldName": "userImpact",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "codeAction",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "content",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "impactTime",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "endTime",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "ip",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "nameClient",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [],
+  "changelogDate": "20210605025419",
+  "entityTableName": "sys_logs",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": true,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

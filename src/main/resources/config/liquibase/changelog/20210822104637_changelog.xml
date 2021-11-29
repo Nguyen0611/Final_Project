@@ -1,0 +1,52 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-3.9.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <changeSet author="thachhieu (generated)" id="1629629216638-1">
+        <createTable tableName="category">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="categoryPK"/>
+            </column>
+            <column name="category_name" type="VARCHAR(60)"/>
+            <column name="status" type="BIGINT"/>
+            <column name="topic_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="thachhieu (generated)" id="1629629216638-2">
+        <createTable tableName="question_answers_listening">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="question_answers_listeningPK"/>
+            </column>
+            <column name="answer" type="VARCHAR(60)"/>
+            <column name="answer_to_choose" type="VARCHAR(200)"/>
+            <column name="name" type="VARCHAR(60)"/>
+            <column name="number_of_answer" type="BIGINT"/>
+            <column name="path_file" type="VARCHAR(200)"/>
+            <column name="status" type="BIGINT"/>
+            <column name="transscript" type="VARCHAR(500)"/>
+            <column name="type_file" type="VARCHAR(200)"/>
+            <column name="category_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="thachhieu (generated)" id="1629629216638-3">
+        <createTable tableName="question_answers_reading">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="question_answers_readingPK"/>
+            </column>
+            <column name="answer" type="VARCHAR(60)"/>
+            <column name="answer_to_choose" type="VARCHAR(200)"/>
+            <column name="name" type="VARCHAR(60)"/>
+            <column name="number_of_answer" type="BIGINT"/>
+            <column name="status" type="BIGINT"/>
+            <column name="transcript" type="VARCHAR(500)"/>
+            <column name="category_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="thachhieu (generated)" id="1629629216638-4">
+        <addForeignKeyConstraint baseColumnNames="topic_id" baseTableName="category" constraintName="FK2vkrm6ckwf6eiq9k4dv1dx5hh" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="topic" validate="true"/>
+    </changeSet>
+    <changeSet author="thachhieu (generated)" id="1629629216638-5">
+        <addForeignKeyConstraint baseColumnNames="category_id" baseTableName="question_answers_listening" constraintName="FKayr5858yduxt662qcxg42mqyr" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="category" validate="true"/>
+    </changeSet>
+    <changeSet author="thachhieu (generated)" id="1629629216638-6">
+        <addForeignKeyConstraint baseColumnNames="category_id" baseTableName="question_answers_reading" constraintName="FKtk4urnj6w35701kgwpncobpsm" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="category" validate="true"/>
+    </changeSet>
+</databaseChangeLog>

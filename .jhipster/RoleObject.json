@@ -1,0 +1,36 @@
+{
+  "name": "RoleObject",
+  "fields": [
+    {
+      "fieldName": "updateTime",
+      "fieldType": "ZonedDateTime"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "roles",
+      "otherEntityRelationshipName": "dsRoleObject",
+      "relationshipName": "roles",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "objects",
+      "otherEntityRelationshipName": "dsRoleObject",
+      "relationshipName": "objects",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20210605025119",
+  "entityTableName": "role_object",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": true,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

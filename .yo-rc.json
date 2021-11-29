@@ -1,0 +1,43 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "fpt.toeic",
+      "nativeLanguage": "vi"
+    },
+    "jhipsterVersion": "6.10.5",
+    "applicationType": "monolith",
+    "baseName": "toeic_web",
+    "packageName": "fpt.toeic",
+    "packageFolder": "fpt/toeic",
+    "serverPort": "8080",
+    "authenticationType": "jwt",
+    "cacheProvider": "hazelcast",
+    "enableHibernateCache": false,
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "mysql",
+    "prodDatabaseType": "mysql",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": "eureka",
+    "buildTool": "maven",
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "MWY4ZGU2ODQyOTVkNDA1NjllMWVlM2NkMTVmOTJkZTBmN2MwMDE5YjE1NDJmODA5OTc2NTI2NTM3MWE5OWQ1MTU5ODU0MGFlZDhjMWVlMWY3NjI5OGNmOWZjMGRmZjNhMTNmMzEzYmUwMWVhOGMzMmRhZTA1MDVkYzAxNTFhOTM=",
+    "embeddableLaunchScript": false,
+    "useSass": true,
+    "clientPackageManager": "npm",
+    "skipClient": true,
+    "creationTimestamp": 1622860845125,
+    "testFrameworks": [],
+    "jhiPrefix": "jhi",
+    "entitySuffix": "",
+    "dtoSuffix": "DTO",
+    "otherModules": [],
+    "enableTranslation": true,
+    "nativeLanguage": "vi",
+    "languages": ["vi"],
+    "blueprints": [],
+    "entities": ["Users", "RoleObject", "Roles", "Objects", "Topic", "SysLogs"],
+    "lastLiquibaseTimestamp": 1627149591000
+  }
+}
